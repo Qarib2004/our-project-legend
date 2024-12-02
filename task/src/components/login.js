@@ -29,7 +29,7 @@ function initializeLoginForm() {
 
     saveCurrentUser(registeredUser);
 
-    window.location.href = "index.html";
+    window.location.href = "../../index.html";
   });
 }
 
@@ -50,7 +50,7 @@ function updateNavbarForLoggedInUser() {
       }).then((result) => {
         if (result.isConfirmed) {
           removeCurrentUser();
-          window.location.href = "login.html";
+          window.location.href = "../../index.html";
         }
       });
     });
@@ -59,6 +59,6 @@ function updateNavbarForLoggedInUser() {
 
 document.addEventListener("DOMContentLoaded", initializeLoginForm);
 
-if (window.location.pathname.includes("index.html")) {
+if (window.location.pathname.includes("../../index.html")) {
   document.addEventListener("DOMContentLoaded", updateNavbarForLoggedInUser);
 }
