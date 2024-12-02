@@ -4,10 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/loaders.css/loaders.css">
+    <link rel="stylesheet" href="../../node_modules/sweetalert/dist/sweetalert.min.js">
+    <link rel="stylesheet" href="/task/src/style.css">
+    <link rel="stylesheet" href="../styles/register.css">
 </head>
 <body>
-   
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Register</button>
+                </li>
+            </ul>
 
-    <script></script>
+            <div class="tab-content" id="authTabsContent">
+                
+                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                            <div class="error-message" id="loginEmailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                            <div class="error-message" id="loginPasswordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <select id="loginRole" class="form-select">
+                                <option value="user">User</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+
+               
+                <div class="tab-pane fade" id="register" role="tabpanel">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                            <div class="error-message" id="registerEmailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                            <div class="error-message" id="registerPasswordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <select id="registerRole" class="form-select">
+                                <option value="user">User</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <!-- <script src="/task/src/components/register.js"></script> -->
+      <script src="../utils/validation.js"></script>
+      <script src="../components/login.js"></script>
+      <script src="../components/register.js"></script>
+      <script src="../../src/utils/storage.js"></script>
+      <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
