@@ -1,21 +1,19 @@
-import './style.css'
+import { BASE_URL, endpoints } from "./constant/endpoints.js";
+// import { deleteData } from "./utils/request.js";
+import { renderCards } from "./utils/helpers.js";
+import { getData } from "./utils/request.js";
+import axios from "axios"
 
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
 
-// setupCounter(document.querySelector('#counter'))
+const search = document.querySelector("#search");
+const button = document.querySelector(".btn-search")
+const sort = document.querySelector("#select-by-name")
+const form = document.querySelector(".form")
+let datas = [];
+
+
+document.addEventListener("DOMContentLoaded", async()=>{
+  const response = await axios.get(BASE_URL + endpoints.vacancies)
+  datas = await response.data;
+  renderCards(datas)
+})
