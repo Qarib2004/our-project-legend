@@ -5,81 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/loaders.css/loaders.css">
+    <link rel="stylesheet" href="../../node_modules/sweetalert/dist/sweetalert.min.js">
+    <link rel="stylesheet" href="/task/src/style.css">
+    <link rel="stylesheet" href="../styles/register.css">
 </head>
 <body>
-   
-    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-8 col-xl-6">
-              <div class="card rounded-3">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-                  class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-                  alt="Sample photo">
-                <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
-      
-                  <form class="px-md-2">
-      
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <input type="text" id="form3Example1q" class="form-control" />
-                      <label class="form-label" for="form3Example1q">Name</label>
-                    </div>
-      
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
-      
-                        <div data-mdb-input-init class="form-outline datepicker">
-                          <input type="text" class="form-control" id="exampleDatepicker1" />
-                          <label for="exampleDatepicker1" class="form-label">Select a date</label>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 mb-4">
-      
-                        <select data-mdb-select-init>
-                          <option value="1" disabled>Gender</option>
-                          <option value="2">Female</option>
-                          <option value="3">Male</option>
-                          <option value="4">Other</option>
-                        </select>
-      
-                      </div>
-                    </div>
-      
-                    <div class="mb-4">
-      
-                      <select data-mdb-select-init>
-                        <option value="1" disabled>Class</option>
-                        <option value="2">User</option>
-                        <option value="3">Company</option>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Register</button>
+                </li>
+            </ul>
 
-                      </select>
-      
-                    </div>
-      
-                    <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                      <div class="col-md-6">
-      
-                        <div data-mdb-input-init class="form-outline">
-                          <input type="text" id="form3Example1w" class="form-control" />
-                          <label class="form-label" for="form3Example1w">Registration code</label>
+            <div class="tab-content" id="authTabsContent">
+                
+                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                            <div class="error-message" id="loginEmailError"></div>
                         </div>
-      
-                      </div>
-                    </div>
-      
-                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Submit</button>
-      
-                  </form>
-      
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                            <div class="error-message" id="loginPasswordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <select id="loginRole" class="form-select">
+                                <option value="user">User</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
                 </div>
-              </div>
+
+               
+                <div class="tab-pane fade" id="register" role="tabpanel">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                            <div class="error-message" id="registerEmailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                            <div class="error-message" id="registerPasswordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <select id="registerRole" class="form-select">
+                                <option value="user">User</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</div>
 
       <script src="/task/src/components/register.js"></script>
+      <script src="../utils/validation.js"></script>
+      <script src="../components/login.js"></script>
+      <script src="../components/register.js"></script>
+      <script src="../../src/utils/storage.js"></script>
+      <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
