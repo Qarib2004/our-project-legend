@@ -69,6 +69,14 @@ header{
     display: flex;
     gap: 10px;
 }
+.list-row-company{
+    display: flex;
+    gap: 10px;
+}
+.list-row-user{
+    display: flex;
+    gap: 10px;
+}
 .btn-del{
     background-color: #fff;
     padding: 6px 10px;
