@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("profile-img").src = profileImageUrl;
 
       document.querySelector(".go-back-btn").addEventListener("click", () => {
-        window.location.href = "index.html";
+        window.location.href = "../../index.html";
       });
     })
     .catch((error) => {

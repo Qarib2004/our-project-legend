@@ -119,7 +119,7 @@ export function renderCardsUser(array) {
 export function detailUser(btn) {
   btn.forEach((button) => {
     button.addEventListener("click", () => {
-      window.location.href = "";
+      window.location.href = "../../src/pages/viewJobsUsers.html";
 
     });
   });
