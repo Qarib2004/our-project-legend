@@ -4,7 +4,7 @@ const notification = document.getElementById('notification');
 form.addEventListener('submit', async function (e) {
     e.preventDefault(); 
 
-    const jobTitle = document.getElementById('jobTitle').value;
+    const jobTitle = document.getElementById('title').value;
     const company = document.getElementById('company').value;
     const salary = document.getElementById('salary').value;
     const employmentType = document.getElementById('employmentType').value;
