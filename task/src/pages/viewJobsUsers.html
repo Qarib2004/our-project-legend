@@ -6,15 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/wiewJobsUsers.css">
-    <title>Job Vacancies</title>
+    <title>Job user vacancies</title>
 </head>
 
 <body>
     <main>
         <!-- bura index htmldeki cardlar elave olunmalidi. -->
 
-        
-      
+        <section id="user-detail">
+            <div class="details-wrapper-container">
+                <h1 class="title text-center">Details of <span id="name_title"></span></h1>
+                <hr>
+                <div class="column is-4-desktop is-12-mobile is-12-tablet">
+                    <div class="img-wrapper">
+                        <img id="profile-img" src="" alt="" title="">
+                    </div>
+                </div>
+                <div class="singer-data column is-6-desktop is-12-mobile is-12-tablet">
+                    <article>
+                        <p>Name: <b id="name"></b></p>
+                        <p>Email: <b id="email"></b></p>
+                        <p>CreatedAt: <b id="createdAt"></b></p>
+                        <p>Genre: <b id="genre"></b></p>
+                        <p>LinkedinUrl: <a id="linkedin-url"></a></p>
+                        <p>ExperienceYear: <b id="experience-year"></b></p>
+                        <p>Bio: <b id="bio"></b></p>
+                        <p>Password: <b id="password"></b></p>
+                        <p>Skills: <b id="skills"></b></p>
+                    </article>
+
+                    <div class="btns-wrapper">
+                        <button title="go back" class="go-back-btn button is-primary has-text-white p-3 px-5"><i
+                                class="fa-solid fa-angles-left"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
 
     </main>
     <script src="../services/viewJobsUsers.js"></script>
