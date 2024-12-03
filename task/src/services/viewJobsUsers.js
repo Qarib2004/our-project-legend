@@ -1,19 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // URL-dən id parametrini yoxla
   let userId = new URLSearchParams(window.location.search).get("id");
 
-  // Əgər id yoxdursa, default olaraq 1 ID istifadə et
   if (!userId) {
     console.warn(
       "User ID is missing in the URL. Using default ID for testing."
     );
-    userId = "1"; // Default ID
+    userId = "1";
   }
 
-  // API URL-si düzgün interpolasiya ilə təyin edilir
   const apiUrl = `https://flower-honeysuckle-empress.glitch.me/users/${userId}`;
 
-  // Şəkil və LinkedIn URL-lərini istifadəçi ID-lərinə görə təyin edirik
   const profileImages = {
     1: "https://i.pinimg.com/736x/4b/cc/54/4bcc54ebe6d0e6700e3df3047c1129c8.jpg",
     2: "https://i.pinimg.com/736x/e5/7b/0e/e57b0ecd4c1e013ba7bfc003f7b5b91d.jpg",
@@ -34,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => {
       if (!response.ok) {
         return response.text().then((errorText) => {
-          // Səhv mesajını düzgün interpolasiya etdik
           throw new Error(`Error: ${response.status} - ${errorText}`);
         });
       }
@@ -54,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("bio").innerText = user.bio;
       document.getElementById("skills").innerText = user.skills.join(", ");
 
-      // LinkedIn URL və profil şəkli üçün doğru URL təyin edirik
       const profileImageUrl = profileImages[userId];
       const linkedinUrl = linkedinUrls[userId];
 
@@ -62,13 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("linkedin-url").innerText = linkedinUrl;
       document.getElementById("profile-img").src = profileImageUrl;
 
-      // previous page düyməsi
       document.querySelector(".go-back-btn").addEventListener("click", () => {
         window.location.href = "index.html";
       });
     })
     .catch((error) => {
-      // Xətanın düzgün interpolasiyası
       console.error("Error fetching user data:", error);
       alert(`Error loading user details: ${error.message}`);
     });
