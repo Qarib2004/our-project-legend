@@ -19,7 +19,8 @@ FetchDisplayData()
 function displayData(data){
     data.forEach(vacancy => {
         const VacancyTemplate=`
- <img class="card-img-top" margin"3" height="220 vh" width="320 vw" src="./../assets/Modern design of we are hiring vector_ Job vacancy design background vector_.jpeg">
+        <div style="justify-content:center; display: flex;">
+ <div><img class="card-img-top"  height="220 vh" width="320 vw" src="./../assets/Modern design of we are hiring vector_ Job vacancy design background vector_.jpeg">
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -27,10 +28,11 @@ function displayData(data){
               <p class="cardtext">${vacancy.description}</p>
                 <h5 class="cardtitle">${vacancy.salary}</h5>
 
-              <button onclick="window.location='./viewJobs.html?id=${vacancy.id}'"  class="btnprimary">Go Details</button>
+              <button onclick="window.location='./viewJobs.html?id=${vacancy.id}'"  class="btnprimary">Go Details</button></div>
               
             </div>
           </div>
+        </div>
         </div>
         `;
     VacanciesContainer.insertAdjacentHTML("beforeend",VacancyTemplate)
