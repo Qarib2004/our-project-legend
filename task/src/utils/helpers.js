@@ -19,29 +19,28 @@ export function renderCards(array) {
                 <p class="card-text"><span style="font-weight: 700;">PostedAt</span>: ${vacancy.postedAt}</p>
                 <p class="card-text"><span style="font-weight: 700;">ExpiresAt</span>: ${vacancy.expiresAt}</p>
                 <p class="card-text"><span style="font-weight: 700;">Parent Company</span>: ${vacancy.employmentType}</p>
-                <button type="button" data-id="${vacancy.id}" class="btn-detail button">Details >></button>
-                <button type="button" data-del="${vacancy.id}" class="btn-del btn btn-danger"><i class="bi bi-trash"></i></button>
+                <button type="button" data-id="${vacancy.id}" class="btn-detail-vacancy button">Details >></button>
+                <button type="button" data-del="${vacancy.id}" class="btn-del-vacancy btn btn-danger"><i class="bi bi-trash"></i></button>
             </div>
         </div>
   `;
   });
 
 
-//   const detailBtnCompany = document.querySelectorAll(".btn-detail");
-//   detailCompany(detailBtnCompany);
-//  console.log(detailBtnCompany)
-  const deleteBtn = document.querySelectorAll(".btn-del");
-  deleteCard(deleteBtn);
+  const detailBtnVacancy = document.querySelectorAll(".btn-detail-vacancy");
+  detailCompany(detailBtnVacancy);
+  const deleteBtnVacancy = document.querySelectorAll(".btn-del-vacancy");
+  deleteCard(deleteBtnVacancy);
  }
 
-// export function detailCompany(btn) {
-//   btn.forEach((button) => {
-//     button.addEventListener("click", () => {
-//       window.location.href = "../pages/company-detail.html";
+export function detailVacancy(btn) {
+  btn.forEach((button) => {
+    button.addEventListener("click", () => {
+      window.location.href = "../../src/pages/Vacancies.html";
 
-//     });
-//   });
-// }
+    });
+  });
+}
 
 
 
