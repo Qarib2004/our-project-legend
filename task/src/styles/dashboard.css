@@ -11,8 +11,11 @@ header{
 .container-fluid{
     display: flex;
     justify-content: space-between;
-    width: 80%;
     align-items: center;
+    margin: 0 auto;
+}
+.container{
+    width: 90%;
     margin: 0 auto;
 }
 .collapse{
@@ -46,7 +49,7 @@ header{
 }
 .card{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 7px 5px;
+    padding: 7px 8px;
     position: relative;
 }
 .box{
@@ -58,16 +61,24 @@ header{
 .cards{
     width: 600px;
 }
-.body{
-    background-color: #fef4ea;
-}
-.icon{
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 25px;
-}
 .hero{
     margin-bottom: 40px;
     margin-top: 20px;
+}
+.list-row{
+    display: flex;
+    gap: 10px;
+}
+.btn-del{
+    background-color: #fff;
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    transition: 0.3s all;
+}
+.btn-del:hover{
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    color: #fff;
 }
