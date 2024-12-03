@@ -1,5 +1,6 @@
 import { BASE_URL, endpoints} from "../constant/endpoints.js";
 import { deleteData } from "../utils/request.js";
+import axios from "axios"
 import Swal from "sweetalert2";
 
 const listRow = document.querySelector(".list-row")
@@ -19,8 +20,6 @@ export function renderCards(array) {
                 <p class="card-text"><span style="font-weight: 700;">Parent Company</span>: ${vacancy.employmentType}</p>
                 <button type="button" data-id="${vacancy.id}" class="btn-detail button">Details >></button>
                 <button type="button" data-del="${vacancy.id}" class="btn-del btn btn-danger"><i class="bi bi-trash"></i></button>
-                
-                </div>
             </div>
         </div>
   `;
@@ -48,10 +47,10 @@ function deleteCard(button){
               }).then(async (result)=>{
                 if (result.isConfirmed) {
                   e.target.closest(".cols").remove();
-                  const response = await deleteData(`${BASE_URL}/${id}`);
+                  const response = await axios.delete(`${BASE_URL}${endpoints.vacancies}/${id}`)
                   Swal.fire({
                     title: "Deleted!",
-                    text: "Your singer has been deleted.",
+                    text: "Your vacancy has been deleted.",
                     icon: "success",
                   });
                 }
