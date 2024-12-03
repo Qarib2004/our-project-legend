@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 })
 
 
-function selectByName(value) {
+function selectByTitle(value) {
   
   let keyword;
   switch (value) {
@@ -50,17 +50,61 @@ function selectByName(value) {
       break;
   }
   renderCards(keyword)
+}
+
+
+function selectByName(value) {
+  
+  let keyword;
+  switch (value) {
+    case "a-z":
+      keyword = [...datasCompany].sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "z-a":
+      keyword = [...datasCompany].sort((a, b) => b.name.localeCompare(a.name));
+      break;  
+  
+    default:
+      keyword = [...datasCompany]
+      break;
+  }
   renderCardsCompany(keyword)
   renderCardsUser(keyword)
 }
+
+
+function selectByNameUser(value) {
+  
+  let keyword;
+  switch (value) {
+    case "a-z":
+      keyword = [...datasUser].sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "z-a":
+      keyword = [...datasUser].sort((a, b) => b.name.localeCompare(a.name));
+      break;  
+  
+    default:
+      keyword = [...datasUser]
+      break;
+  }
+  renderCardsUser(keyword)
+}
 sort.addEventListener("change", (e)=>{
+  selectByNameUser(e.target.value)
+  selectByTitle(e.target.value)
   selectByName(e.target.value)
+
 })
+
+
 
 form.addEventListener("submit", (e)=>{
   e.preventDefault();
 
 })  
+
+
 
 function SearchCards(element) {
   const card = [...datas].filter(value => value.title.trim().toUpperCase().includes(element.trim().toUpperCase()))
@@ -71,18 +115,3 @@ function SearchCards(element) {
 search.addEventListener("input", (e)=>{
   SearchCards(e.target.value)
 })
-// import './style.css'
-
-
-// document.querySelector('#app').innerHTML = `
-//   <div>
-   
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
-

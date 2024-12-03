@@ -1,3 +1,7 @@
+import { getCurrentUser } from "../utils/storage";
+import { getRegisteredUser } from "../utils/storage";
+import { saveCurrentUser } from "../utils/storage";
+
 function initializeLoginForm() {
   const loginForm = document.getElementById("loginForm");
   if (!loginForm) return;
@@ -11,7 +15,7 @@ function initializeLoginForm() {
 
     document.getElementById("loginEmailError").textContent = "";
     document.getElementById("loginPasswordError").textContent = "";
-
+     
     const registeredUser = getRegisteredUser();
 
     if (
