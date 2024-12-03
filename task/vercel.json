@@ -1,8 +1,12 @@
 {
     "rewrites": [
       {
-        "source": "/(.*)",
-        "destination": "/index.html"
+        "source": "/addForm",
+        "destination": "/src/pages/addForm.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/src/pages/contact.html"
       }
     ]
   }
