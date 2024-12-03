@@ -1,75 +1,73 @@
-
-import API from "../constant/api.js"
-
-const urlParams = new URLSearchParams(window.location.search);
-const jobId = urlParams.get("id");
-
-
-const jobDetailsContainer = document.getElementById("job-details");
+const companyBtn = document.getElementById("company-btn");
+const vacanciesBtn = document.getElementById("vacancies-btn");
+const companyName = document.getElementById("company-name");
+const content = document.getElementById("content");
 
 
-async function fetchJobDetails() {
+const companyId = 3;
+
+document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch(`${API}jobs/${jobId}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch job details");
+    const response = await fetch("https://shorthaired-lavish-hell.glitch.me/companies");
+    const companies = await response.json();
+    const company = companies.find((c) => c.id === companyId);
+    if (company) {
+      companyName.textContent = company.name;
+    } else {
+      companyName.textContent = "Company not found";
     }
-
-    const job = await response.json();
-    renderJobDetails(job);
   } catch (error) {
-    console.error("Error fetching job details:", error);
-    jobDetailsContainer.innerHTML = `
-      <div class="alert alert-danger text-center" role="alert">
-        Unable to load job details. Please try again later.
-      </div>
-    `;
+    companyName.textContent = "Error loading company name";
   }
-}
+});
+
+companyBtn.addEventListener("click", async () => {
+  content.innerHTML = "<p>Loading company information...</p>";
+  try {
+    const response = await fetch("https://shorthaired-lavish-hell.glitch.me/companies");
+    const companies = await response.json();
+    const company = companies.find((c) => c.id === companyId);
+    if (company) {
+      content.innerHTML = `
+        <h3>Şirkət haqqında</h3>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">${company.name}</h5>
+            <p class="card-text">${company.info}</p>
+          </div>
+        </div>
+      `;
+    } else {
+      content.innerHTML = `<p>No company found with ID ${companyId}</p>`;
+    }
+  } catch (error) {
+    content.innerHTML = `<p class="text-danger">Error loading company information!</p>`;
+  }
+});
 
 
-function renderJobDetails(job) {
-  const {
-    title,
-    description,
-    salary,
-    postedAt,
-    expiresAt,
-    employmentType,
-    isActive,
-    candidates,
-  } = job;
-
-  jobDetailsContainer.innerHTML = `
-    <div class="col-md-8">
-      <h2>${title}</h2>
-      <p><strong>Employment Type:</strong> ${employmentType}</p>
-      <p><strong>Salary:</strong> ${salary}</p>
-      <p><strong>Posted At:</strong> ${new Date(postedAt).toLocaleDateString()}</p>
-      <p><strong>Expires At:</strong> ${new Date(expiresAt).toLocaleDateString()}</p>
-      <p><strong>Status:</strong> ${isActive ? "Active" : "Closed"}</p>
-      <hr>
-      <h5>Description</h5>
-      <p>${description}</p>
-      <hr>
-      <h5>Candidates</h5>
-      <ul>
-        ${candidates
-      .map(
-        (candidate) => `
-          <li>
-            <strong>Candidate ID:</strong> ${candidate.candidateId}, 
-            <strong>Status:</strong> ${candidate.status}, 
-            <a href="${candidate.linkedinUrl}" target="_blank">LinkedIn</a>
-          </li>
+vacanciesBtn.addEventListener("click", async () => {
+  content.innerHTML = "<p>Loading vacancies...</p>";
+  try {
+    const response = await fetch("https://shorthaired-lavish-hell.glitch.me/vacancies");
+    const vacancies = await response.json();
+    content.innerHTML = `
+      <h3>Vakansiyalar</h3>
+      ${vacancies.map(
+      (vacancy) => `
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">${vacancy.title}</h5>
+              <p class="card-text">${vacancy.date}</p>
+            </div>
+          </div>
         `
-      )
-      .join("")}
-      </ul>
-    </div>
-  `;
-}
+    ).join("")}
+    `;
+  } catch (error) {
+    content.innerHTML = `<p class="text-danger">Error loading vacancies!</p>`;
+  }
+});
 
 
-fetchJobDetails();
 
