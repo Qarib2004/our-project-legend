@@ -1,92 +1,186 @@
-*{
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", serif;
-}
-header{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 15px 15px;
-}
-.container-fluid{
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #f8f9fa;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav.navbar {
+    padding: 1.5rem 0;
+  }
+
+  .nav-item{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-}
-.container{
-    width: 90%;
-    margin: 0 auto;
-}
-.collapse{
-    display: flex;
-    gap: 40px;
-    align-items: baseline;
-}
-#select-by-name{
-    padding: 4px 5px;
-}
-#search{
-    padding: 4px 5px;
-    border-radius: 5px;
-}
-.button{
-    background-color: #ff5c35;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    margin-right: 20px;
+   
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #ff4f5d;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ff4f5d;
+  }
+  
+  .form .form-control {
+    width: 250px;
+    border-radius: 30px;
+  }
+  
+  .form select {
+    border-radius: 30px;
+  }
+  
+  .form button {
+    background-color: #ff4f5d;
     border: none;
-    border-radius: 7px;
-    padding: 7px 10px;
-    color: #fff;
-}
-.nav-link{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-.navbar-nav{
-    list-style: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+  }
+  
+  .form button:hover {
+    background-color: #e1454b;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-color: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .hero .list-row,
+  .hero .list-row-company,
+  .hero .list-row-user {
     display: flex;
-    gap: 15px;
-}
-.card{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 7px 8px;
-    position: relative;
-}
-.box{
-    padding: 60px 0;
-    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    align-items: center;
-}
-.cards{
-    width: 600px;
-}
-.hero{
-    margin-bottom: 40px;
-    margin-top: 20px;
-}
-.list-row{
-    display: flex;
-    gap: 10px;
-}
-.list-row-company{
-    display: flex;
-    gap: 10px;
-}
-.list-row-user{
-    display: flex;
-    gap: 10px;
-}
-.btn-del{
+  }
+  
+  /* Cards */
+  .card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card h5 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .card p {
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  .card .btn {
+    background-color: #ff4f5d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .card .btn:hover {
+    background-color: #e1454b;
+  }
+  
+  /* Section Titles */
+  section h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  
+  /* Footer */
+  footer {
     background-color: #fff;
-    padding: 6px 10px;
-    border-radius: 7px;
-    border: 1px solid #dc3545;
-    color: #dc3545;
-    transition: 0.3s all;
-}
-.btn-del:hover{
-    background-color: #dc3545;
-    border: 1px solid #dc3545;
-    color: #fff;
-}
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  
+    .form .form-control,
+    .form select,
+    .form button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .hero .list-row,
+    .hero .list-row-company,
+    .hero .list-row-user {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-nav .nav-link {
+      font-size: 12px;
+    }
+  
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
